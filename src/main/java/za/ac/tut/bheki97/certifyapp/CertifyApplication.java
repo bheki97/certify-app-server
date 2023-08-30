@@ -1,4 +1,4 @@
-package za.ac.tutbheki97.certifyapp;
+package za.ac.tut.bheki97.certifyapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
