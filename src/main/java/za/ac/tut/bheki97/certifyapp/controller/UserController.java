@@ -1,4 +1,4 @@
-package za.ac.tut.bheki97.certifyapp.user.controller;
+package za.ac.tut.bheki97.certifyapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
