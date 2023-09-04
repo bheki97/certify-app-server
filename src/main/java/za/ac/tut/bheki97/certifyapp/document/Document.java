@@ -35,6 +35,7 @@ public class Document {
         this.user = user;
     }
 
+
     public long getDocId() {
         return docId;
     }

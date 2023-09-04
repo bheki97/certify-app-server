@@ -55,6 +55,7 @@ public class DocumentServiceImpl implements DocumentService{
 
         if(!docRepo.existsByDocIdAndUser_Email(dto.getDocId(), dto.getUserId()))
             throw new DocException("Cannot update a Document that does not exists");
+
         Path path = Paths.get(documentFolderPath+dto.getFileName());
         File file = path.toFile();
 
@@ -62,14 +63,10 @@ public class DocumentServiceImpl implements DocumentService{
         String fileName;
         //checks if the user made changes to the document
         //if the document exists, meaning there are changes made to the document
-        if(file.exists() && Files.readAllBytes(path)==dto.getContent())
-            fileName = file.getName();
-        else fileName = saveDocumentFile(dto.getUserId(), dto.getFileName(), dto.getContent());
-
         if(file.exists()){
             if(Files.readAllBytes(path)==dto.getContent())
                 fileName = file.getName();
-            else throw new DocException("Cannot update a Document with similar file name");;
+            else throw new DocException("Cannot update a Document with similar file name");
 
         }else fileName = saveDocumentFile(dto.getUserId(), dto.getFileName(), dto.getContent());
 
