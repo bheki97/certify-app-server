@@ -32,7 +32,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/update")
+    @PostMapping
     public boolean update(@RequestBody User user) throws UserException {
 
         return userService.updateAccount(user);

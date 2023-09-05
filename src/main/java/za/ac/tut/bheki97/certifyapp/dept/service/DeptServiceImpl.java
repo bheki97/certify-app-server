@@ -22,7 +22,7 @@ public class DeptServiceImpl implements DeptService{
 
     @Autowired
     private DeptRepo repo;
-    private String stampFolderPath = "C:\\java-progs\\certify-app\\src\\main\\resources\\static\\stamps\\";
+    private String stampFolderPath = "C:\\java-progs\\certify-app\\src\\main\\resources\\static\\dept-stamps\\";
 
 
 
@@ -107,12 +107,13 @@ public class DeptServiceImpl implements DeptService{
 
 
     private DepartmentDto generateDto(Department dept)throws DeptartmentException,IOException{
-        Path path = Paths.get(stampFolderPath+dept.getStampName());
 
-        if(!path.toFile().exists())
+        String path=stampFolderPath+dept.getStampName();
+
+        if(!new File(path).exists())
             throw new DeptartmentException("Stamp Does not Exists");
 
-        return new DepartmentDto(dept.getDeptId(), dept.getDeptName(), dept.getStampName(), Files.readAllBytes(path));
+        return new DepartmentDto(dept.getDeptId(), dept.getDeptName(), dept.getStampName(), Files.readAllBytes(Paths.get(path)));
 
     }
 }

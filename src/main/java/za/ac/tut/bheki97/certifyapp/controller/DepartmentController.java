@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import za.ac.tut.bheki97.certifyapp.dept.dto.DepartmentDto;
 import za.ac.tut.bheki97.certifyapp.dept.service.DeptService;
+import za.ac.tut.bheki97.certifyapp.office.service.OfficeService;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +18,9 @@ public class DepartmentController {
 
     @Autowired
     private DeptService serv;
+
+    @Autowired
+    private OfficeService offServ;
 
 
     @PostMapping
@@ -37,11 +41,11 @@ public class DepartmentController {
         return serv.getAllDepartments();
     }
 
+
     @PutMapping
-    public DepartmentDto updateDept(@RequestParam("content") MultipartFile stamp,
-                                    @RequestParam("id") long id,
-                                    @RequestParam("userId")String deptName,
-                                    @RequestParam("docName")String docName) throws IOException {
+    public DepartmentDto updateDept(@RequestParam("stamp") MultipartFile stamp,
+                                    @RequestParam("dept_id") long id,
+                                    @RequestParam("dept_name")String deptName) throws IOException {
         return serv.updateDepartment(new DepartmentDto(id,deptName, stamp.getOriginalFilename(), stamp.getBytes()));
     }
 

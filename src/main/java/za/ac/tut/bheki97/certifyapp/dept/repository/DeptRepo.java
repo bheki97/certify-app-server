@@ -7,4 +7,5 @@ public interface DeptRepo extends JpaRepository<Department,Long> {
 
     boolean existsByDeptName(String name);
 
+
 }

@@ -29,6 +29,10 @@ public class Department {
         this.stampName = stampName;
     }
 
+    public Department(long deptId) {
+        this.deptId = deptId;
+    }
+
     public Department(String deptName, String stampName) {
         this.deptName = deptName;
         this.stampName = stampName;

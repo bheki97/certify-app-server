@@ -1,9 +1,6 @@
 package za.ac.tut.bheki97.certifyapp.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -12,6 +9,7 @@ import java.util.Objects;
 public class User {
 
     @Id
+    @Column(name = "user_id")
     private String email;
     private String password;
     private String name;
@@ -23,10 +21,12 @@ public class User {
 
 
     public User() {
+        this.active = true;
     }
 
     public User(String email) {
         this.email = email;
+        this.active = true;
     }
 
     public User(String email, String password, String name, String surname, String cellNo, String role) {
@@ -36,6 +36,7 @@ public class User {
         this.surname = surname;
         this.cellNo = cellNo;
         this.role = role;
+        this.active = true;
     }
 
     public String getEmail() {
