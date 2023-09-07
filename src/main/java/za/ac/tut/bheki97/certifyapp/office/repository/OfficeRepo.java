@@ -8,6 +8,6 @@ import java.util.List;
 public interface OfficeRepo extends JpaRepository<Office,Long> {
 
     boolean existsByOffName(String offName);
-    List<Office> findAllByDepartment_DeptId(long id);
+    List<Office> findAllByDept_DeptId(long id);
 
 }

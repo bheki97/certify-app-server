@@ -46,7 +46,7 @@ public class OfficeServiceImpl implements OfficeService{
 
         dto.setStampName(fileName);
 
-        return generateDto(dto.toOffice());
+        return generateDto(repo.save(dto.toOffice()));
     }
 
     @Override
@@ -106,7 +106,7 @@ public class OfficeServiceImpl implements OfficeService{
 
     @Override
     public List<OfficeDto> getAllOfficesByDeptId(long deptId) {
-        return  repo.findAllByDepartment_DeptId(deptId).stream().map(o ->{
+        return  repo.findAllByDept_DeptId(deptId).stream().map(o ->{
                     try {
                         return generateDto(o);
                     } catch (IOException e) {

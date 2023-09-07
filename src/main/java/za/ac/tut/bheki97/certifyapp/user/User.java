@@ -24,6 +24,16 @@ public class User {
         this.active = true;
     }
 
+    public User(User user){
+        this.email = user.email;
+        this.password = user.password;
+        this.name = user.name;
+        this.surname = user.surname;
+        this.cellNo = user.cellNo;
+        this.role = user.role;
+        this.active = user.active;
+    }
+
     public User(String email) {
         this.email = email;
         this.active = true;

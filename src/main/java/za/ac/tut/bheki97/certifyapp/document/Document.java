@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Document {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "doc_id")
     private long docId;
     @Column(name = "doc_name")
